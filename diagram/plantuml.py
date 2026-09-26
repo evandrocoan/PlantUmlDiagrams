@@ -216,7 +216,7 @@ class PlantUMLProcessor(BaseProcessor):
             **EXTRA_CALL_ARGS
         )
 
-        if has_java is not 0:
+        if has_java != 0:
             log(1, "PlantUMLDiagrams: ERROR, cannot find Java")
 
     def check_plantuml_functionality(self):
