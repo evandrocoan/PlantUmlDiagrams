@@ -139,10 +139,10 @@ def process(view, continuous_processor=None):
     diagrams = []
 
     if continuous_processor:
-        async=False
+        run_async=False
 
     else:
-        async=True
+        run_async=True
 
     for plantuml_processor in ACTIVE_UML_PROCESSORS:
         log(4, "plantuml_processor %s", plantuml_processor)
@@ -170,7 +170,7 @@ def process(view, continuous_processor=None):
     if diagrams:
         sourceFile = view.file_name()
 
-        if async:
+        if run_async:
             t = Thread(target=render_and_view, args=(sourceFile, diagrams, continuous_processor))
             t.daemon = True
             t.start()
